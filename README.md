@@ -1,0 +1,4 @@
+screenshotr
+===========
+
+Video Screenshot Utility
