@@ -1,0 +1,19 @@
+{
+    "name": "aequasi/screenshotr",
+    "description": "Creates screen shots from a video",
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "~0.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aaron Scherer",
+            "email": "aequasi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aequasi\\": "src/" 
+        }
+    }
+}
