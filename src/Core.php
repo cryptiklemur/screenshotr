@@ -156,7 +156,6 @@ class Core
     {
         $screenShots = [];
         while ($start <= $this->info->get('duration')) {
-            echo "Frame: $start\n";
             $screenShots[$start] = $this->generateScreenshot($start);
             $start += $frameCount;
         }
