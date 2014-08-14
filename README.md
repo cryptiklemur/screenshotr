@@ -7,7 +7,7 @@ Video Screenshot Utility
 ## Install
 
 ```sh
-composer require aequasi/screenshotr "~1.0.0"
+$ composer require aequasi/screenshotr "~1.0.0"
 ```
 
 ## Usage
