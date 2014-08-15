@@ -6,6 +6,10 @@ Video Screenshot Utility
 
 ## Install
 
+Requires the ffmpeg and ffprobe executables in your path: 
+https://www.ffmpeg.org/
+
+
 ```sh
 $ composer require aequasi/screenshotr "~1.0.0"
 ```
