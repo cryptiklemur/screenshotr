@@ -6,8 +6,12 @@ Video Screenshot Utility
 
 ## Install
 
+Requires the ffmpeg and ffprobe executables in your path: 
+https://www.ffmpeg.org/
+
+
 ```sh
-composer require aequasi/screenshotr "~1.0.0"
+$ composer require aequasi/screenshotr "~1.0.0"
 ```
 
 ## Usage
@@ -15,7 +19,7 @@ composer require aequasi/screenshotr "~1.0.0"
 ```php
 
 // Second argument is the tmp dir the images are created in. Defaults to /tmp
-$screenShotr = new \ScreenShotr\Core('/path/to/move/file');
+$screenShotr = new \ScreenShotr\Core('/path/to/movie/file');
 
 // Generate a single screenshot at the 300 second mark, returns a \SplFileInfo to a file in /tmp
 $screenshot = $screenShotr->generateScreenshot(300);
