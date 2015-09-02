@@ -121,7 +121,7 @@ class Core
     public function getScreenshot(Frame $frame)
     {
         if (!file_exists($this->screenshotDirectory)) {
-            mkdir($this->screenshotDirectory);
+            mkdir($this->screenshotDirectory, 0777, true);
         }
 
         $file = tempnam($this->screenshotDirectory, 'ss_');
@@ -131,6 +131,7 @@ class Core
             throw new \Exception("Could not create a file in: ".$this->screenshotDirectory);
         }
         $frame->save($file);
+        chmod($file, 0777);
 
         return new \SplFileInfo($file);
     }
@@ -147,16 +148,25 @@ class Core
     }
 
     /**
-     * @param int $frameCount
+     * @param int  $start
+     * @param int  $frameCount
+     * @param bool $skipException
      *
      * @return \SplFileInfo[]
      * @throws \Exception
      */
-    public function generateScreenshotEveryFrame($start = 1, $frameCount = 1)
+    public function generateScreenshotEveryFrame($start = 1, $frameCount = 1, $skipException = true)
     {
         $screenShots = [];
         while ($start <= $this->info->get('duration')) {
-            $screenShots[$start] = $this->generateScreenshot($start);
+            try {
+                $screenShots[$start] = $this->generateScreenshot($start);
+            } catch (\Exception $e) {
+                if (!$skipException) {
+                    throw $e;
+                }
+            }
+
             $start += $frameCount;
         }
 
