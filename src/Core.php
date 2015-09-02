@@ -134,7 +134,7 @@ class Core
         }
 
         try {
-            $frame->save($file, true);
+            @$frame->save($file, true);
         } catch (\Exception $e) {
             // Do nothing
         }
