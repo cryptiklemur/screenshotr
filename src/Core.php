@@ -120,6 +120,8 @@ class Core
      */
     public function getScreenshot(Frame $frame)
     {
+
+
         if (!file_exists($this->screenshotDirectory)) {
             mkdir($this->screenshotDirectory, 0777, true);
         }
@@ -130,7 +132,13 @@ class Core
         if ($file === false) {
             throw new \Exception("Could not create a file in: ".$this->screenshotDirectory);
         }
-        $frame->save($file);
+
+        try {
+            $frame->save($file, true);
+        } catch (\Exception $e) {
+            // Do nothing
+        }
+
         chmod($file, 0777);
 
         return new \SplFileInfo($file);
