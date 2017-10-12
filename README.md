@@ -11,7 +11,7 @@ https://www.ffmpeg.org/
 
 
 ```sh
-$ composer require aequasi/screenshotr "~1.0.0"
+$ composer require aequasi/screenshotr "^1.0"
 ```
 
 ## Usage
